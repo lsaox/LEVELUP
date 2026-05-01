@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Thank You | North Texas Level Up Plumbing</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<script>
+tailwind.config = {
+theme: {
+extend: {
+colors: {
+blueMain: "#0b43d9",
+blueHover: "#0a38b8",
+blueDark: "#061444"
+},
+fontFamily: {
+orbitron: ["Orbitron", "sans-serif"],
+sans: ["Inter", "sans-serif"]
+}
+}
+}
+}
+</script>
+</head>
+
+<body class="bg-black text-white font-sans overflow-x-hidden">
+
+<!-- BACKGROUND -->
+<div class="absolute inset-0 -z-10">
+  <div class="w-full h-full bg-gradient-to-br from-blueDark via-black to-black"></div>
+  <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(11,67,217,0.35),transparent_40%)]"></div>
+</div>
+
+<!-- CONTENT -->
+<section class="min-h-screen flex items-center justify-center px-5 text-center">
+
+  <div class="max-w-xl">
+
+    <p class="text-blueMain uppercase tracking-[0.25em] text-xs font-extrabold mb-4">
+      Request Sent
+    </p>
+
+    <h1 class="font-orbitron uppercase text-4xl sm:text-5xl font-black leading-tight mb-6">
+      Thank You.
+      <br>
+      We Got Your Request.
+    </h1>
+
+    <p class="text-white/70 text-lg mb-8 leading-relaxed">
+      North Texas Level Up Plumbing will reach out shortly to go over your plumbing issue and next steps.
+    </p>
+
+    <!-- ACTION BUTTONS -->
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+
+      <a href="index.html"
+        class="bg-blueMain text-white px-8 py-4 uppercase tracking-[0.16em] text-xs font-extrabold hover:bg-blueHover transition">
+        Go Home »
+      </a>
+
+      <a href="tel:19725043499"
+        class="border border-white/30 px-8 py-4 uppercase tracking-[0.16em] text-xs font-extrabold hover:border-blueMain hover:text-blueMain transition">
+        Call Now »
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+</body>
+</html>
