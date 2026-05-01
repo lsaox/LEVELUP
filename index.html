@@ -9,7 +9,12 @@
 
   <link rel="stylesheet" href="styles.css" />
   <script src="script.js" defer></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- AOS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -34,13 +39,74 @@
       }
     }
   </script>
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    .shine-text {
+      position: relative;
+      overflow: hidden;
+      animation: heroFade 1.1s ease forwards;
+    }
+
+    .shine-text::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -120%;
+      width: 70%;
+      height: 100%;
+      background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,0.65),
+        transparent
+      );
+      transform: skewX(-20deg);
+      animation: shineSweep 1.5s ease forwards;
+      animation-delay: .35s;
+    }
+
+    @keyframes shineSweep {
+      to {
+        left: 140%;
+      }
+    }
+
+    @keyframes heroFade {
+      from {
+        opacity: 0;
+        transform: translateY(24px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    #mobileMenu {
+      transition: opacity .25s ease, visibility .25s ease;
+    }
+
+    #mobileMenu.menu-open {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    #mobileMenu.menu-closed {
+      opacity: 0;
+      visibility: hidden;
+    }
+  </style>
 </head>
 
 <body class="bg-white text-ink overflow-x-hidden">
 
   <!-- TOP BAR -->
   <div class="bg-[#1f1f1f] text-white/80 text-[11px] font-semibold">
-    <div class="max-w-7xl mx-auto px-5 h-7 flex justify-end items-center gap-6">
+    <div class="max-w-7xl mx-auto px-5 h-7 flex justify-center sm:justify-end items-center gap-4 sm:gap-6">
       <a href="#areas" class="hover:text-blueMain">Service Areas</a>
       <a href="#contact" class="hover:text-blueMain">Emergency Help</a>
       <a href="tel:19725043499" class="hover:text-blueMain">972-504-3499</a>
@@ -48,7 +114,7 @@
   </div>
 
   <!-- NAV -->
-  <header class="bg-white border-b border-black/10 relative z-30">
+  <header class="bg-white border-b border-black/10 relative z-50">
     <div class="max-w-7xl mx-auto px-5 h-[90px] flex items-center justify-between">
       
       <a href="index.html" class="flex items-center">
@@ -62,17 +128,62 @@
         <a href="#contact" class="hover:text-blueMain">Contact</a>
       </nav>
 
-      <a href="#contact" class="hidden md:inline-flex border border-blueMain px-5 py-3 text-[12px] uppercase tracking-[0.14em] font-extrabold text-blueMain hover:bg-blueMain hover:text-white transition">
+      <a href="#contact" class="hidden lg:inline-flex border border-blueMain px-5 py-3 text-[12px] uppercase tracking-[0.14em] font-extrabold text-blueMain hover:bg-blueMain hover:text-white transition">
         Get A Fast Quote »
       </a>
 
-      <button class="lg:hidden text-3xl font-bold">☰</button>
+      <button id="menuBtn" class="lg:hidden text-3xl font-bold text-black">
+        ☰
+      </button>
     </div>
+
+    <!-- MOBILE MENU -->
+    <div id="mobileMenu" class="menu-closed fixed inset-0 bg-white/95 z-[999] flex flex-col items-center justify-center text-center px-6">
+
+  <!-- CLOSE BUTTON -->
+  <button id="closeMenu" class="absolute top-6 right-6 text-black text-4xl">
+    ×
+  </button>
+
+  <!-- LOGO -->
+  <img 
+    src="assets/logo.png" 
+    alt="North Texas Level Up Plumbing" 
+    class="w-40 mb-10"
+  >
+
+  <!-- NAV LINKS -->
+  <nav class="flex flex-col gap-7 font-orbitron text-black uppercase tracking-[0.18em] font-bold text-sm">
+
+    <a href="#services" class="mobile-link hover:text-blueMain transition">
+      Services
+    </a>
+
+    <a href="#about" class="mobile-link hover:text-blueMain transition">
+      Who We Are
+    </a>
+
+    <a href="#areas" class="mobile-link hover:text-blueMain transition">
+      Service Areas
+    </a>
+
+    <a href="#contact" class="mobile-link hover:text-blueMain transition">
+      Contact
+    </a>
+
+  </nav>
+
+  <!-- CTA -->
+  <a href="tel:19725043499" 
+     class="mt-10 bg-blueMain text-white px-7 py-4 uppercase tracking-[0.14em] text-xs font-extrabold hover:bg-blueHover transition">
+    Call Now »
+  </a>
+
+</div>
   </header>
 
   <!-- HERO -->
   <section class="relative min-h-[620px] lg:min-h-[650px] overflow-hidden">
-    
     <div class="absolute inset-0 z-0">
       <img src="assets/hero.png" class="w-full h-full object-cover" alt="North Texas plumbing service" />
       <div class="absolute inset-0 bg-black/70"></div>
@@ -80,15 +191,14 @@
     </div>
 
     <div class="relative z-10 max-w-7xl mx-auto px-5 pt-20 lg:pt-24">
-      
-      <div class="flex items-center gap-4 mb-8">
+      <div class="flex items-center gap-4 mb-8" data-aos="fade-up">
         <p class="text-white/90 text-xs uppercase tracking-[0.22em] font-bold">
           Serving North Texas
         </p>
         <div class="w-24 h-[2px] bg-blueMain"></div>
       </div>
 
-      <h1 class="font-orbitron uppercase leading-[0.95] tracking-tight">
+      <h1 class="font-orbitron uppercase leading-[0.95] tracking-tight shine-text">
         <span class="block text-transparent [-webkit-text-stroke:1.5px_white] text-[3rem] sm:text-[4.7rem] lg:text-[6.4rem]">
           LEVEL
         </span>
@@ -100,11 +210,11 @@
         </span>
       </h1>
 
-      <p class="max-w-xl mt-7 text-white/80 text-base sm:text-lg leading-relaxed">
+      <p class="max-w-xl mt-7 text-white/80 text-base sm:text-lg leading-relaxed" data-aos="fade-up" data-aos-delay="200">
         Raising the standard. Fixing the problem. Reliable plumbing service for homes, businesses, repairs, installs, and emergency calls across North Texas.
       </p>
 
-      <div class="flex flex-col sm:flex-row gap-5 mt-9">
+      <div class="flex flex-col sm:flex-row gap-5 mt-9" data-aos="fade-up" data-aos-delay="300">
         <a href="#services" class="text-blueMain uppercase tracking-[0.14em] text-sm font-extrabold hover:text-white transition">
           See Our Services »
         </a>
@@ -115,15 +225,12 @@
     </div>
 
     <div class="absolute right-[12%] bottom-[-24px] z-20">
-      <div class="text-blueMain text-6xl leading-none font-black rotate-90">
-        »»
-      </div>
+      <div class="text-blueMain text-6xl leading-none font-black rotate-90">»»</div>
     </div>
   </section>
 
-  <!-- ABOUT CENTERED WITH SIDE IMAGE + COUNTERS -->
+  <!-- ABOUT -->
   <section id="about" class="relative py-24 text-center overflow-hidden bg-[#f5f7fb]">
-
     <div class="absolute right-0 top-0 h-full w-full lg:w-[40%] opacity-20 lg:opacity-35">
       <img src="assets/a.jpg" alt="North Texas plumbing company" class="w-full h-full object-cover">
       <div class="absolute inset-0 bg-gradient-to-r from-[#f5f7fb] via-[#f5f7fb]/60 to-transparent"></div>
@@ -131,8 +238,7 @@
 
     <div class="absolute inset-0 bg-[radial-gradient(circle_at_right,rgba(11,67,217,0.18),transparent_28%)]"></div>
 
-    <div class="relative max-w-5xl mx-auto px-5">
-
+    <div class="relative max-w-5xl mx-auto px-5" data-aos="fade-up">
       <p class="text-blueMain uppercase tracking-[0.22em] text-xs font-extrabold mb-4">
         About North Texas Level Up Plumbing
       </p>
@@ -156,8 +262,7 @@
       </div>
 
       <div class="mt-14 grid sm:grid-cols-3 gap-5 max-w-4xl mx-auto">
-
-        <div class="bg-white border border-black/10 p-7 shadow-lg">
+        <div class="bg-white border border-black/10 p-7 shadow-lg" data-aos="fade-up" data-aos-delay="100">
           <h3 class="font-orbitron text-4xl font-black text-blueMain">
             <span class="count-up" data-target="21">0</span>+
           </h3>
@@ -166,7 +271,7 @@
           </p>
         </div>
 
-        <div class="bg-white border border-black/10 p-7 shadow-lg">
+        <div class="bg-white border border-black/10 p-7 shadow-lg" data-aos="fade-up" data-aos-delay="200">
           <h3 class="font-orbitron text-4xl font-black text-blueMain">
             <span class="count-up" data-target="1">0</span>YR
           </h3>
@@ -175,7 +280,7 @@
           </p>
         </div>
 
-        <div class="bg-white border border-black/10 p-7 shadow-lg">
+        <div class="bg-white border border-black/10 p-7 shadow-lg" data-aos="fade-up" data-aos-delay="300">
           <h3 class="font-orbitron text-4xl font-black text-blueMain">
             <span class="count-up" data-target="24">0</span>/7
           </h3>
@@ -183,105 +288,92 @@
             Emergency Help
           </p>
         </div>
-
       </div>
-
     </div>
   </section>
 
- <!-- SERVICES -->
-<section id="services" class="relative bg-white py-24 overflow-hidden">
-
-  <div class="absolute inset-0 grid grid-cols-4 opacity-[0.05]">
-    <div class="border-r border-black"></div>
-    <div class="border-r border-black"></div>
-    <div class="border-r border-black"></div>
-    <div></div>
-  </div>
-
-  <div class="relative max-w-7xl mx-auto px-5">
-
-    <!-- BIG BORDER WRAP -->
-    <div class="relative border border-black/15 shadow-2xl bg-white p-6 sm:p-10 lg:p-12 overflow-hidden">
-
-      <!-- blue accents -->
-      <div class="absolute top-0 left-0 w-28 h-[4px] bg-blueMain"></div>
-      <div class="absolute top-0 left-0 w-[4px] h-28 bg-blueMain"></div>
-      <div class="absolute bottom-0 right-0 w-28 h-[4px] bg-blueMain"></div>
-      <div class="absolute bottom-0 right-0 w-[4px] h-28 bg-blueMain"></div>
-
-      <div class="grid lg:grid-cols-3 gap-10 items-start">
-
-        <div class="text-center lg:text-left">
-          <p class="text-blueMain uppercase tracking-[0.22em] text-xs font-extrabold mb-3">
-            Level Up Plumbing
-          </p>
-
-          <h2 class="font-orbitron uppercase text-3xl sm:text-4xl font-black leading-tight">
-            Built For Fast, Clean, Professional Work.
-          </h2>
-
-          <p class="mt-5 text-black/60 leading-relaxed">
-            Fully licensed and insured. All service includes a 1 year warranty and professional trained technicians.
-          </p>
-
-          <a href="#contact" class="inline-flex mt-7 bg-blueMain text-white px-6 py-4 uppercase tracking-[0.14em] text-xs font-extrabold hover:bg-blueHover transition">
-            Get A Fast Quote »
-          </a>
-        </div>
-
-        <div class="lg:col-span-2 grid sm:grid-cols-2 xl:grid-cols-3 gap-5">
-
-          <div class="group border border-black/10 p-6 hover:border-blueMain hover:shadow-lg transition bg-white">
-            <div class="w-10 h-1 bg-blueMain mb-5"></div>
-            <h3 class="font-orbitron text-lg uppercase font-black mb-3">Repairs</h3>
-            <p class="text-sm text-black/60">Leaks, clogs, pressure issues, emergency calls.</p>
-          </div>
-
-          <div class="group border border-black/10 p-6 hover:border-blueMain hover:shadow-lg transition bg-white">
-            <div class="w-10 h-1 bg-blueMain mb-5"></div>
-            <h3 class="font-orbitron text-lg uppercase font-black mb-3">Water Heaters</h3>
-            <p class="text-sm text-black/60">Water heater repairs, installs, and replacements.</p>
-          </div>
-
-          <div class="group border border-black/10 p-6 hover:border-blueMain hover:shadow-lg transition bg-white">
-            <div class="w-10 h-1 bg-blueMain mb-5"></div>
-            <h3 class="font-orbitron text-lg uppercase font-black mb-3">Gas Leaks</h3>
-            <p class="text-sm text-black/60">Gas leak service, detection, and plumbing repair.</p>
-          </div>
-
-          <div class="group border border-black/10 p-6 hover:border-blueMain hover:shadow-lg transition bg-white">
-            <div class="w-10 h-1 bg-blueMain mb-5"></div>
-            <h3 class="font-orbitron text-lg uppercase font-black mb-3">Service Unstops</h3>
-            <p class="text-sm text-black/60">Clogged drains, backed-up lines, and service unstops.</p>
-          </div>
-
-          <div class="group border border-black/10 p-6 hover:border-blueMain hover:shadow-lg transition bg-white">
-            <div class="w-10 h-1 bg-blueMain mb-5"></div>
-            <h3 class="font-orbitron text-lg uppercase font-black mb-3">Camera Inspections</h3>
-            <p class="text-sm text-black/60">Sewer camera inspections and line diagnostics.</p>
-          </div>
-
-          <div class="group border border-black/10 p-6 hover:border-blueMain hover:shadow-lg transition bg-white">
-            <div class="w-10 h-1 bg-blueMain mb-5"></div>
-            <h3 class="font-orbitron text-lg uppercase font-black mb-3">Commercial</h3>
-            <p class="text-sm text-black/60">Business plumbing, build-outs, and maintenance.</p>
-          </div>
-
-        </div>
-
-      </div>
+  <!-- SERVICES -->
+  <section id="services" class="relative bg-white py-24 overflow-hidden">
+    <div class="absolute inset-0 grid grid-cols-4 opacity-[0.05]">
+      <div class="border-r border-black"></div>
+      <div class="border-r border-black"></div>
+      <div class="border-r border-black"></div>
+      <div></div>
     </div>
 
-  </div>
-</section>
+    <div class="relative max-w-7xl mx-auto px-5">
+      <div class="relative border border-black/15 shadow-2xl bg-white p-6 sm:p-10 lg:p-12 overflow-hidden" data-aos="fade-up">
+        <div class="absolute top-0 left-0 w-28 h-[4px] bg-blueMain"></div>
+        <div class="absolute top-0 left-0 w-[4px] h-28 bg-blueMain"></div>
+        <div class="absolute bottom-0 right-0 w-28 h-[4px] bg-blueMain"></div>
+        <div class="absolute bottom-0 right-0 w-[4px] h-28 bg-blueMain"></div>
+
+        <div class="grid lg:grid-cols-3 gap-10 items-start">
+          <div class="text-center lg:text-left">
+            <p class="text-blueMain uppercase tracking-[0.22em] text-xs font-extrabold mb-3">
+              Level Up Plumbing
+            </p>
+
+            <h2 class="font-orbitron uppercase text-3xl sm:text-4xl font-black leading-tight">
+              Built For Fast, Clean, Professional Work.
+            </h2>
+
+            <p class="mt-5 text-black/60 leading-relaxed">
+              Fully licensed and insured. All service includes a 1 year warranty and professional trained technicians.
+            </p>
+
+            <a href="#contact" class="inline-flex mt-7 bg-blueMain text-white px-6 py-4 uppercase tracking-[0.14em] text-xs font-extrabold hover:bg-blueHover transition">
+              Get A Fast Quote »
+            </a>
+          </div>
+
+          <div class="lg:col-span-2 grid sm:grid-cols-2 xl:grid-cols-3 gap-5">
+            <div class="group border border-black/10 p-6 hover:border-blueMain hover:shadow-lg transition bg-white" data-aos="fade-up" data-aos-delay="100">
+              <div class="w-10 h-1 bg-blueMain mb-5"></div>
+              <h3 class="font-orbitron text-lg uppercase font-black mb-3">Repairs</h3>
+              <p class="text-sm text-black/60">Leaks, clogs, pressure issues, emergency calls.</p>
+            </div>
+
+            <div class="group border border-black/10 p-6 hover:border-blueMain hover:shadow-lg transition bg-white" data-aos="fade-up" data-aos-delay="150">
+              <div class="w-10 h-1 bg-blueMain mb-5"></div>
+              <h3 class="font-orbitron text-lg uppercase font-black mb-3">Water Heaters</h3>
+              <p class="text-sm text-black/60">Water heater repairs, installs, and replacements.</p>
+            </div>
+
+            <div class="group border border-black/10 p-6 hover:border-blueMain hover:shadow-lg transition bg-white" data-aos="fade-up" data-aos-delay="200">
+              <div class="w-10 h-1 bg-blueMain mb-5"></div>
+              <h3 class="font-orbitron text-lg uppercase font-black mb-3">Gas Leaks</h3>
+              <p class="text-sm text-black/60">Gas leak service, detection, and plumbing repair.</p>
+            </div>
+
+            <div class="group border border-black/10 p-6 hover:border-blueMain hover:shadow-lg transition bg-white" data-aos="fade-up" data-aos-delay="250">
+              <div class="w-10 h-1 bg-blueMain mb-5"></div>
+              <h3 class="font-orbitron text-lg uppercase font-black mb-3">Service Unstops</h3>
+              <p class="text-sm text-black/60">Clogged drains, backed-up lines, and service unstops.</p>
+            </div>
+
+            <div class="group border border-black/10 p-6 hover:border-blueMain hover:shadow-lg transition bg-white" data-aos="fade-up" data-aos-delay="300">
+              <div class="w-10 h-1 bg-blueMain mb-5"></div>
+              <h3 class="font-orbitron text-lg uppercase font-black mb-3">Camera Inspections</h3>
+              <p class="text-sm text-black/60">Sewer camera inspections and line diagnostics.</p>
+            </div>
+
+            <div class="group border border-black/10 p-6 hover:border-blueMain hover:shadow-lg transition bg-white" data-aos="fade-up" data-aos-delay="350">
+              <div class="w-10 h-1 bg-blueMain mb-5"></div>
+              <h3 class="font-orbitron text-lg uppercase font-black mb-3">Commercial</h3>
+              <p class="text-sm text-black/60">Business plumbing, build-outs, and maintenance.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- NETLIFY FORM DARK -->
   <section id="contact" class="bg-black py-20 text-white relative overflow-hidden">
-
     <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(11,67,217,0.25),transparent_40%)]"></div>
 
-    <div class="relative max-w-5xl mx-auto px-5">
-
+    <div class="relative max-w-5xl mx-auto px-5" data-aos="fade-up">
       <div class="text-center mb-12">
         <p class="text-blueMain uppercase tracking-[0.22em] text-xs font-extrabold mb-3">
           Get A Fast Quote
@@ -304,7 +396,6 @@
         action="/thankyou.html"
         class="grid gap-5 bg-white/5 backdrop-blur-sm p-6 sm:p-8 border border-white/10"
       >
-
         <input type="hidden" name="form-name" value="ntx-plumbing-form">
 
         <p class="hidden">
@@ -355,16 +446,13 @@
         <button type="submit" class="mt-4 bg-blueMain text-white py-4 uppercase tracking-[0.16em] text-xs font-extrabold hover:bg-blueHover transition">
           Send Request »
         </button>
-
       </form>
-
     </div>
   </section>
 
   <!-- SERVICE AREAS -->
   <section id="areas" class="bg-[#f5f7fb] py-20 text-center">
-    <div class="max-w-6xl mx-auto px-5">
-
+    <div class="max-w-6xl mx-auto px-5" data-aos="fade-up">
       <p class="text-blueMain uppercase tracking-[0.22em] text-xs font-extrabold mb-3">
         Proudly Serving DFW
       </p>
@@ -396,113 +484,112 @@
         <span>Duncanville</span>
         <span>Cedar Hill</span>
       </div>
-
     </div>
   </section>
 
-<!-- FINAL PREMIUM FOOTER -->
-<footer class="relative text-white overflow-hidden">
+  <!-- FOOTER -->
+  <footer class="relative text-white overflow-hidden">
+    <div class="absolute inset-0">
+      <img src="assets/footer.jpg" class="w-full h-full object-cover">
+      <div class="absolute inset-0 bg-gradient-to-b from-black/95 via-black/90 to-black/95"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(11,67,217,0.25),transparent_50%)]"></div>
+    </div>
 
-  <!-- BACKGROUND -->
-  <div class="absolute inset-0">
-    <img src="assets/footer.jpg" class="w-full h-full object-cover">
+    <div class="relative max-w-7xl mx-auto px-5 py-20">
+      <div class="grid lg:grid-cols-3 gap-14 items-center text-center lg:text-left">
 
-    <!-- HEAVY DARK OVERLAY -->
-    <div class="absolute inset-0 bg-gradient-to-b from-black/95 via-black/90 to-black/95"></div>
+        <div class="flex flex-col items-center lg:items-start order-2 lg:order-1" data-aos="fade-up">
+          <p class="uppercase tracking-[0.3em] text-xs text-blueMain mb-6">
+            Quick Links
+          </p>
 
-    <!-- subtle blue glow -->
-    <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(11,67,217,0.25),transparent_50%)]"></div>
-  </div>
+          <div class="flex flex-col gap-4 text-white/80">
+            <a href="index.html" class="hover:text-blueMain transition">Home</a>
+            <a href="#about" class="hover:text-blueMain transition">About</a>
+            <a href="#services" class="hover:text-blueMain transition">Services</a>
+            <a href="#contact" class="hover:text-blueMain transition">Contact</a>
+          </div>
+        </div>
 
-  <div class="relative max-w-7xl mx-auto px-5 py-20">
+        <div class="flex flex-col items-center order-1 lg:order-2" data-aos="fade-up" data-aos-delay="150">
+          <img src="assets/logod.png" alt="Level Up Plumbing Logo" class="w-40 sm:w-44 mb-6 p-2 shadow-lg">
 
-    <!-- GRID -->
-    <div class="grid lg:grid-cols-3 gap-14 items-center text-center lg:text-left">
+          <h3 class="font-orbitron uppercase text-xl tracking-[0.28em] leading-[1.4] mb-4 text-center">
+            LEVEL UP<br>PLUMBING
+          </h3>
 
-      <!-- LEFT -->
-      <div class="flex flex-col items-center lg:items-start order-2 lg:order-1">
-        <p class="uppercase tracking-[0.3em] text-xs text-blueMain mb-6">
-          Quick Links
-        </p>
+          <div class="w-16 h-[2px] bg-blueMain mb-6"></div>
 
-        <div class="flex flex-col gap-4 text-white/80">
-          <a href="index.html" class="hover:text-blueMain transition">Home</a>
-          <a href="#about" class="hover:text-blueMain transition">About</a>
-          <a href="#services" class="hover:text-blueMain transition">Services</a>
-          <a href="#contact" class="hover:text-blueMain transition">Contact</a>
+          <p class="text-white/60 text-sm max-w-xs leading-relaxed text-center">
+            Clean installs, reliable repairs, and plumbing solutions you can trust across the DFW area.
+          </p>
+        </div>
+
+        <div class="flex flex-col items-center lg:items-end order-3 text-center lg:text-right" data-aos="fade-up" data-aos-delay="250">
+          <p class="text-white/80 mb-3">
+            Call / Text:
+            <a href="tel:19725043499" class="hover:text-blueMain transition">
+              972-504-3499
+            </a>
+          </p>
+
+          <a href="mailto:Info@ntxlevelupplumbing.com" class="text-white/60 text-sm mb-6 hover:text-blueMain transition">
+            Info@ntxlevelupplumbing.com
+          </a>
+
+          <div class="flex gap-5 text-white/80 text-lg">
+            <a href="#" class="hover:text-blueMain transition"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="hover:text-blueMain transition"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="#" class="hover:text-blueMain transition"><i class="fa-brands fa-facebook-f"></i></a>
+          </div>
         </div>
       </div>
 
-      <!-- CENTER -->
-      <div class="flex flex-col items-center order-1 lg:order-2">
-
-        <!-- LOGO -->
-        <img 
-          src="assets/logod.png" 
-          alt="Level Up Plumbing Logo"
-          class="w-40 sm:w-44 mb-6  p-2 shadow-lg"
-        >
-
-        <!-- NAME -->
-        <h3 class="font-orbitron uppercase text-xl tracking-[0.28em] leading-[1.4] mb-4 text-center">
-          LEVEL UP<br>PLUMBING
-        </h3>
-
-        <!-- DIVIDER -->
-        <div class="w-16 h-[2px] bg-blueMain mb-6"></div>
-
-        <!-- DESC -->
-        <p class="text-white/60 text-sm max-w-xs leading-relaxed text-center">
-          Clean installs, reliable repairs, and plumbing solutions you can trust across the DFW area.
+      <div class="mt-16 border-t border-white/10 pt-6 text-center">
+        <p class="text-white/40 text-[11px] leading-relaxed tracking-wide">
+          © 2026 North Texas Level Up Plumbing • All Rights Reserved<br>
+          Custom coded by Echelon
         </p>
-
       </div>
-
-      <!-- RIGHT -->
-      <div class="flex flex-col items-center lg:items-end order-3 text-center lg:text-right">
-
-        <p class="text-white/80 mb-3">
-          Call / Text:
-          <a href="tel:19725043499" class="hover:text-blueMain transition">
-            972-504-3499
-          </a>
-        </p>
-
-        <a href="mailto:Info@ntxlevelupplumbing.com" class="text-white/60 text-sm mb-6 hover:text-blueMain transition">
-          Info@ntxlevelupplumbing.com
-        </a>
-
-        <!-- SOCIAL -->
-        <div class="flex gap-5 text-white/80 text-lg">
-          <a href="#" class="hover:text-blueMain transition">
-            <i class="fa-brands fa-instagram"></i>
-          </a>
-          <a href="#" class="hover:text-blueMain transition">
-            <i class="fa-brands fa-tiktok"></i>
-          </a>
-          <a href="#" class="hover:text-blueMain transition">
-            <i class="fa-brands fa-facebook-f"></i>
-          </a>
-        </div>
-
-      </div>
-
     </div>
+  </footer>
 
-    <!-- BOTTOM -->
-    <div class="mt-16 border-t border-white/10 pt-6 text-center">
-      <p class="text-white/40 text-[11px] leading-relaxed tracking-wide">
-        © 2026 North Texas Level Up Plumbing • All Rights Reserved<br>
-        Custom coded by Echelon
-      </p>
-    </div>
+  <!-- AOS + SCRIPTS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
-  </div>
-
-</footer>
-
-  <!-- COUNT UP SCRIPT -->
   <script>
+    AOS.init({
+      duration: 900,
+      easing: "ease-out-cubic",
+      once: true,
+      offset: 90
+    });
+
+    const menuBtn = document.getElementById("menuBtn");
+    const closeMenu = document.getElementById("closeMenu");
+    const mobileMenu = document.getElementById("mobileMenu");
+    const mobileLinks = document.querySelectorAll(".mobile-link");
+
+    menuBtn.addEventListener("click", () => {
+      mobileMenu.classList.remove("menu-closed");
+      mobileMenu.classList.add("menu-open");
+      document.body.style.overflow = "hidden";
+    });
+
+    closeMenu.addEventListener("click", () => {
+      mobileMenu.classList.remove("menu-open");
+      mobileMenu.classList.add("menu-closed");
+      document.body.style.overflow = "";
+    });
+
+    mobileLinks.forEach(link => {
+      link.addEventListener("click", () => {
+        mobileMenu.classList.remove("menu-open");
+        mobileMenu.classList.add("menu-closed");
+        document.body.style.overflow = "";
+      });
+    });
+
     const counters = document.querySelectorAll(".count-up");
 
     const runCounter = (counter) => {
