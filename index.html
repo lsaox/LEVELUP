@@ -9,7 +9,7 @@
 
   <link rel="stylesheet" href="styles.css" />
   <script src="script.js" defer></script>
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -400,57 +400,106 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
-  <footer class="bg-black text-white py-14">
+<!-- FINAL PREMIUM FOOTER -->
+<footer class="relative text-white overflow-hidden">
 
-    <div class="max-w-7xl mx-auto px-5 grid md:grid-cols-3 gap-10">
+  <!-- BACKGROUND -->
+  <div class="absolute inset-0">
+    <img src="assets/footer.jpg" class="w-full h-full object-cover">
 
-      <div>
-        <h3 class="font-orbitron text-xl font-black mb-3">
-          North Texas Level Up Plumbing
+    <!-- HEAVY DARK OVERLAY -->
+    <div class="absolute inset-0 bg-gradient-to-b from-black/95 via-black/90 to-black/95"></div>
+
+    <!-- subtle blue glow -->
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(11,67,217,0.25),transparent_50%)]"></div>
+  </div>
+
+  <div class="relative max-w-7xl mx-auto px-5 py-20">
+
+    <!-- GRID -->
+    <div class="grid lg:grid-cols-3 gap-14 items-center text-center lg:text-left">
+
+      <!-- LEFT -->
+      <div class="flex flex-col items-center lg:items-start order-2 lg:order-1">
+        <p class="uppercase tracking-[0.3em] text-xs text-blueMain mb-6">
+          Quick Links
+        </p>
+
+        <div class="flex flex-col gap-4 text-white/80">
+          <a href="index.html" class="hover:text-blueMain transition">Home</a>
+          <a href="#about" class="hover:text-blueMain transition">About</a>
+          <a href="#services" class="hover:text-blueMain transition">Services</a>
+          <a href="#contact" class="hover:text-blueMain transition">Contact</a>
+        </div>
+      </div>
+
+      <!-- CENTER -->
+      <div class="flex flex-col items-center order-1 lg:order-2">
+
+        <!-- LOGO -->
+        <img 
+          src="assets/logod.png" 
+          alt="Level Up Plumbing Logo"
+          class="w-40 sm:w-44 mb-6  p-2 shadow-lg"
+        >
+
+        <!-- NAME -->
+        <h3 class="font-orbitron uppercase text-xl tracking-[0.28em] leading-[1.4] mb-4 text-center">
+          LEVEL UP<br>PLUMBING
         </h3>
 
-        <p class="text-white/60 text-sm">
-          Raising the standard of plumbing across the DFW area with reliable service and quality work.
+        <!-- DIVIDER -->
+        <div class="w-16 h-[2px] bg-blueMain mb-6"></div>
+
+        <!-- DESC -->
+        <p class="text-white/60 text-sm max-w-xs leading-relaxed text-center">
+          Clean installs, reliable repairs, and plumbing solutions you can trust across the DFW area.
         </p>
+
       </div>
 
-      <div>
-        <h4 class="uppercase text-sm tracking-widest font-bold mb-3 text-blueMain">
-          Contact
-        </h4>
+      <!-- RIGHT -->
+      <div class="flex flex-col items-center lg:items-end order-3 text-center lg:text-right">
 
-        <p class="text-white/70 text-sm mb-2">
-          Phone: <a href="tel:19725043499" class="hover:text-blueMain">972-504-3499</a>
+        <p class="text-white/80 mb-3">
+          Call / Text:
+          <a href="tel:19725043499" class="hover:text-blueMain transition">
+            972-504-3499
+          </a>
         </p>
 
-        <p class="text-white/70 text-sm mb-2">
-          Email: <a href="mailto:Info@ntxlevelupplumbing.com" class="hover:text-blueMain">Info@ntxlevelupplumbing.com</a>
-        </p>
+        <a href="mailto:Info@ntxlevelupplumbing.com" class="text-white/60 text-sm mb-6 hover:text-blueMain transition">
+          Info@ntxlevelupplumbing.com
+        </a>
 
-        <p class="text-white/70 text-sm">
-          NTXlevelupplumbing.com
-        </p>
-      </div>
+        <!-- SOCIAL -->
+        <div class="flex gap-5 text-white/80 text-lg">
+          <a href="#" class="hover:text-blueMain transition">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="#" class="hover:text-blueMain transition">
+            <i class="fa-brands fa-tiktok"></i>
+          </a>
+          <a href="#" class="hover:text-blueMain transition">
+            <i class="fa-brands fa-facebook-f"></i>
+          </a>
+        </div>
 
-      <div>
-        <h4 class="uppercase text-sm tracking-widest font-bold mb-3 text-blueMain">
-          Mailing Address
-        </h4>
-
-        <p class="text-white/70 text-sm">
-          120 E Grubb POBox 850693<br>
-          Mesquite, TX 75185
-        </p>
       </div>
 
     </div>
 
-    <div class="mt-12 text-center text-white/40 text-xs">
-      © 2026 North Texas Level Up Plumbing. All rights reserved.
+    <!-- BOTTOM -->
+    <div class="mt-16 border-t border-white/10 pt-6 text-center">
+      <p class="text-white/40 text-[11px] leading-relaxed tracking-wide">
+        © 2026 North Texas Level Up Plumbing • All Rights Reserved<br>
+        Custom coded by Echelon
+      </p>
     </div>
 
-  </footer>
+  </div>
+
+</footer>
 
   <!-- COUNT UP SCRIPT -->
   <script>
