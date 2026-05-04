@@ -19,7 +19,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <meta name="description" content="North Texas Level Up Plumbing serving DFW. Repairs, water heaters, gas leaks, drain cleaning, sewer inspections, and more. Call 972-504-3499.">
+  <meta name="description" content="North Texas Level Up Plumbing serving DFW. Residential plumbing repairs, water heaters, gas leaks, drain cleaning, toilet rebuilds, faucet repair, hose bib replacement, and more. Call 972-504-3499.">
 
   <script>
     tailwind.config = {
@@ -41,9 +41,7 @@
   </script>
 
   <style>
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
     .shine-text {
       position: relative;
@@ -58,32 +56,17 @@
       left: -120%;
       width: 70%;
       height: 100%;
-      background: linear-gradient(
-        120deg,
-        transparent,
-        rgba(255,255,255,0.65),
-        transparent
-      );
+      background: linear-gradient(120deg, transparent, rgba(255,255,255,0.65), transparent);
       transform: skewX(-20deg);
       animation: shineSweep 1.5s ease forwards;
       animation-delay: .35s;
     }
 
-    @keyframes shineSweep {
-      to {
-        left: 140%;
-      }
-    }
+    @keyframes shineSweep { to { left: 140%; } }
 
     @keyframes heroFade {
-      from {
-        opacity: 0;
-        transform: translateY(24px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     #mobileMenu {
@@ -98,6 +81,11 @@
     #mobileMenu.menu-closed {
       opacity: 0;
       visibility: hidden;
+    }
+
+    .service-option.active {
+      border-color: #0b43d9;
+      box-shadow: 0 18px 40px rgba(11,67,217,.15);
     }
   </style>
 </head>
@@ -115,21 +103,25 @@
 
   <!-- NAV -->
   <header class="bg-white border-b border-black/10 relative z-50">
-    <div class="max-w-7xl mx-auto px-5 h-[90px] flex items-center justify-between">
+    <div class="max-w-7xl mx-auto px-5 h-[96px] flex items-center justify-between">
       
-      <a href="index.html" class="flex items-center">
-        <img src="assets/logo.png" alt="North Texas Level Up Plumbing" class="h-24 lg:h-28 w-auto object-contain">
+      <a href="index.html" class="flex items-center gap-3">
+        <img src="assets/ntx.png" alt="North Texas Level Up Plumbing" class="h-20 lg:h-24 w-auto object-contain">
+        <div class="hidden sm:block leading-tight">
+          
+        </div>
       </a>
 
       <nav class="hidden lg:flex items-center gap-9 text-[12px] uppercase tracking-[0.16em] font-bold text-black/70">
         <a href="#services" class="hover:text-blueMain">Services</a>
         <a href="#about" class="hover:text-blueMain">Who We Are</a>
+        <a href="#reviews" class="hover:text-blueMain">Reviews</a>
         <a href="#areas" class="hover:text-blueMain">Service Areas</a>
         <a href="#contact" class="hover:text-blueMain">Contact</a>
       </nav>
 
       <a href="#contact" class="hidden lg:inline-flex border border-blueMain px-5 py-3 text-[12px] uppercase tracking-[0.14em] font-extrabold text-blueMain hover:bg-blueMain hover:text-white transition">
-        Get A Fast Quote »
+        Request Service »
       </a>
 
       <button id="menuBtn" class="lg:hidden text-3xl font-bold text-black">
@@ -140,95 +132,89 @@
     <!-- MOBILE MENU -->
     <div id="mobileMenu" class="menu-closed fixed inset-0 bg-white/95 z-[999] flex flex-col items-center justify-center text-center px-6">
 
-  <!-- CLOSE BUTTON -->
-  <button id="closeMenu" class="absolute top-6 right-6 text-black text-4xl">
-    ×
-  </button>
+      <button id="closeMenu" class="absolute top-6 right-6 text-black text-4xl">×</button>
 
-  <!-- LOGO -->
-  <img 
-    src="assets/logo.png" 
-    alt="North Texas Level Up Plumbing" 
-    class="w-40 mb-10"
-  >
+      <img src="assets/ntx.png" alt="North Texas Level Up Plumbing" class="w-36 mb-5">
 
-  <!-- NAV LINKS -->
-  <nav class="flex flex-col gap-7 font-orbitron text-black uppercase tracking-[0.18em] font-bold text-sm">
+      <h3 class="font-orbitron uppercase tracking-[0.18em] text-black font-black text-lg mb-9">
+        North Texas<br>
+        <span class="text-blueMain">Level Up Plumbing</span>
+      </h3>
 
-    <a href="#services" class="mobile-link hover:text-blueMain transition">
-      Services
-    </a>
+      <nav class="flex flex-col gap-7 font-orbitron text-black uppercase tracking-[0.18em] font-bold text-sm">
+        <a href="#services" class="mobile-link hover:text-blueMain transition">Services</a>
+        <a href="#about" class="mobile-link hover:text-blueMain transition">Who We Are</a>
+        <a href="#reviews" class="mobile-link hover:text-blueMain transition">Reviews</a>
+        <a href="#areas" class="mobile-link hover:text-blueMain transition">Service Areas</a>
+        <a href="#contact" class="mobile-link hover:text-blueMain transition">Contact</a>
+      </nav>
 
-    <a href="#about" class="mobile-link hover:text-blueMain transition">
-      Who We Are
-    </a>
-
-    <a href="#areas" class="mobile-link hover:text-blueMain transition">
-      Service Areas
-    </a>
-
-    <a href="#contact" class="mobile-link hover:text-blueMain transition">
-      Contact
-    </a>
-
-  </nav>
-
-  <!-- CTA -->
-  <a href="tel:19725043499" 
-     class="mt-10 bg-blueMain text-white px-7 py-4 uppercase tracking-[0.14em] text-xs font-extrabold hover:bg-blueHover transition">
-    Call Now »
-  </a>
-
-</div>
+      <a href="tel:19725043499" class="mt-10 bg-blueMain text-white px-7 py-4 uppercase tracking-[0.14em] text-xs font-extrabold hover:bg-blueHover transition">
+        Call Now »
+      </a>
+    </div>
   </header>
 
-  <!-- HERO -->
+  <!-- HERO --><div class="hero-content relative z-10 max-w-7xl mx-auto">
   <section class="relative min-h-[620px] lg:min-h-[650px] overflow-hidden">
-    <div class="absolute inset-0 z-0">
-      <img src="assets/hero.png" class="w-full h-full object-cover" alt="North Texas plumbing service" />
-      <div class="absolute inset-0 bg-black/70"></div>
-      <div class="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-black/20"></div>
+  
+  <!-- BACKGROUND -->
+  <div class="absolute inset-0 z-0">
+    <img src="assets/hero.png" class="w-full h-full object-cover" alt="North Texas plumbing service" />
+    <div class="absolute inset-0 bg-black/70"></div>
+    <div class="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-black/20"></div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="relative z-10 max-w-7xl mx-auto px-[clamp(20px,6vw,80px)] pt-[clamp(100px,14vh,160px)] pb-[clamp(60px,10vh,120px)]">
+    
+    <div class="flex items-center gap-4 mb-8" data-aos="fade-up">
+      <p class="text-white/90 text-xs uppercase tracking-[0.22em] font-bold"></p>
+      <div class="w-24 h-[2px]"></div>
     </div>
 
-    <div class="relative z-10 max-w-7xl mx-auto px-5 pt-20 lg:pt-24">
-      <div class="flex items-center gap-4 mb-8" data-aos="fade-up">
-        <p class="text-white/90 text-xs uppercase tracking-[0.22em] font-bold">
-          Serving North Texas
-        </p>
-        <div class="w-24 h-[2px] bg-blueMain"></div>
-      </div>
+    <h1 class="font-orbitron uppercase leading-[0.95] tracking-tight shine-text">
+      <span class="block text-white text-[1.15rem] sm:text-[1.6rem] lg:text-[2rem] tracking-[0.35em] mb-3">
+        North Texas
+      </span>
 
-      <h1 class="font-orbitron uppercase leading-[0.95] tracking-tight shine-text">
-        <span class="block text-transparent [-webkit-text-stroke:1.5px_white] text-[3rem] sm:text-[4.7rem] lg:text-[6.4rem]">
-          LEVEL
-        </span>
-        <span class="block text-white text-[2.8rem] sm:text-[4.5rem] lg:text-[6.7rem]">
-          UP
-        </span>
-        <span class="block text-transparent [-webkit-text-stroke:1.5px_white] text-[3rem] sm:text-[4.7rem] lg:text-[6.4rem]">
-          PLUMBING
-        </span>
-      </h1>
+      <span class="block text-transparent [-webkit-text-stroke:1.5px_white] text-[3rem] sm:text-[4.7rem] lg:text-[6.4rem]">
+        LEVEL
+      </span>
 
-      <p class="max-w-xl mt-7 text-white/80 text-base sm:text-lg leading-relaxed" data-aos="fade-up" data-aos-delay="200">
-        Raising the standard. Fixing the problem. Reliable plumbing service for homes, businesses, repairs, installs, and emergency calls across North Texas.
-      </p>
+      <span class="block text-white text-[2.8rem] sm:text-[4.5rem] lg:text-[6.7rem]">
+        UP
+      </span>
 
-      <div class="flex flex-col sm:flex-row gap-5 mt-9" data-aos="fade-up" data-aos-delay="300">
-        <a href="#services" class="text-blueMain uppercase tracking-[0.14em] text-sm font-extrabold hover:text-white transition">
-          See Our Services »
-        </a>
-        <a href="#contact" class="text-blueMain uppercase tracking-[0.14em] text-sm font-extrabold hover:text-white transition">
-          Schedule Service »
-        </a>
-      </div>
+      <span class="block text-transparent [-webkit-text-stroke:1.5px_white] text-[3rem] sm:text-[4.7rem] lg:text-[6.4rem]">
+        PLUMBING
+      </span>
+    </h1>
+
+    <p class="max-w-lg mt-7 text-white/80 text-base sm:text-lg leading-relaxed" data-aos="fade-up" data-aos-delay="200">
+      Raising the standard. Fixing the problem. Reliable residential plumbing service for repairs, installs, emergency calls, and everyday plumbing needs across North Texas.
+    </p>
+
+    <div class="flex flex-col sm:flex-row gap-5 mt-10" data-aos="fade-up" data-aos-delay="300">
+      
+      <a href="#services" class="cta-btn">
+        See Our Services »
+      </a>
+
+      <a href="#contact" class="cta-btn">
+        Request Service »
+      </a>
+
     </div>
 
-    <div class="absolute right-[12%] bottom-[-24px] z-20">
-      <div class="text-blueMain text-6xl leading-none font-black rotate-90">»»</div>
-    </div>
-  </section>
+  </div>
 
+  <!-- SCROLL ICON -->
+  <div class="absolute right-[12%] bottom-[-24px] z-20">
+    <div class="text-blueMain text-6xl leading-none font-black rotate-90">»»</div>
+  </div>
+
+</section>
   <!-- ABOUT -->
   <section id="about" class="relative py-24 text-center overflow-hidden bg-[#f5f7fb]">
     <div class="absolute right-0 top-0 h-full w-full lg:w-[40%] opacity-20 lg:opacity-35">
@@ -249,15 +235,15 @@
 
       <div class="max-w-4xl mx-auto space-y-6 text-black/70 leading-relaxed text-base">
         <p>
-          North Texas Level Up Plumbing is a locally owned and operated North Texas plumbing company proudly serving homeowners and businesses throughout the DFW area. Built on hard work, honesty, and good old-fashioned Texas values, we deliver dependable, high-quality plumbing work our neighbors can trust.
+          North Texas Level Up Plumbing is a locally owned and operated North Texas plumbing company proudly serving homeowners throughout the DFW area. Built on hard work, honesty, and good old-fashioned Texas values, we deliver dependable, high-quality plumbing work our neighbors can trust.
         </p>
 
         <p>
-          We understand that plumbing problems don’t just interrupt your day—they affect your home, your business, and your peace of mind. That’s why we approach every job, from everyday plumbing repairs to larger plumbing upgrades, with care, craftsmanship, and respect.
+          We understand that plumbing problems don’t just interrupt your day—they affect your home and your peace of mind. That’s why we approach every job, from everyday plumbing repairs to larger plumbing upgrades, with care, craftsmanship, and respect.
         </p>
 
         <p>
-          At North Texas Level Up Plumbing, our goal is simple: to raise the standard of plumbing in North Texas through solid workmanship, transparent pricing, and a trustworthy, neighbor-you-can-count-on approach.
+          Our goal is simple: raise the standard of plumbing in North Texas through solid workmanship, transparent pricing, and a trustworthy, neighbor-you-can-count-on approach.
         </p>
       </div>
 
@@ -293,90 +279,189 @@
   </section>
 
   <!-- SERVICES -->
-  <section id="services" class="relative bg-white py-24 overflow-hidden">
-    <div class="absolute inset-0 grid grid-cols-4 opacity-[0.05]">
-      <div class="border-r border-black"></div>
-      <div class="border-r border-black"></div>
-      <div class="border-r border-black"></div>
-      <div></div>
-    </div>
+<section id="services" class="relative bg-white py-24 overflow-hidden">
+  <div class="absolute inset-0 grid grid-cols-4 opacity-[0.05]">
+    <div class="border-r border-black"></div>
+    <div class="border-r border-black"></div>
+    <div class="border-r border-black"></div>
+    <div></div>
+  </div>
 
-    <div class="relative max-w-7xl mx-auto px-5">
-      <div class="relative border border-black/15 shadow-2xl bg-white p-6 sm:p-10 lg:p-12 overflow-hidden" data-aos="fade-up">
-        <div class="absolute top-0 left-0 w-28 h-[4px] bg-blueMain"></div>
-        <div class="absolute top-0 left-0 w-[4px] h-28 bg-blueMain"></div>
-        <div class="absolute bottom-0 right-0 w-28 h-[4px] bg-blueMain"></div>
-        <div class="absolute bottom-0 right-0 w-[4px] h-28 bg-blueMain"></div>
+  <div class="relative max-w-7xl mx-auto px-5">
+    <div class="relative border border-black/15 shadow-2xl bg-white p-6 sm:p-10 lg:p-12 overflow-hidden" data-aos="fade-up">
 
-        <div class="grid lg:grid-cols-3 gap-10 items-start">
-          <div class="text-center lg:text-left">
-            <p class="text-blueMain uppercase tracking-[0.22em] text-xs font-extrabold mb-3">
-              Level Up Plumbing
-            </p>
+      <div class="absolute top-0 left-0 w-28 h-[4px] bg-blueMain"></div>
+      <div class="absolute top-0 left-0 w-[4px] h-28 bg-blueMain"></div>
+      <div class="absolute bottom-0 right-0 w-28 h-[4px] bg-blueMain"></div>
+      <div class="absolute bottom-0 right-0 w-[4px] h-28 bg-blueMain"></div>
 
-            <h2 class="font-orbitron uppercase text-3xl sm:text-4xl font-black leading-tight">
-              Built For Fast, Clean, Professional Work.
-            </h2>
+      <div class="grid lg:grid-cols-3 gap-10 items-start">
 
-            <p class="mt-5 text-black/60 leading-relaxed">
-              Fully licensed and insured. All service includes a 1 year warranty and professional trained technicians.
-            </p>
+        <!-- LEFT -->
+        <div class="text-center lg:text-left">
+          <p class="text-blueMain uppercase tracking-[0.22em] text-xs font-extrabold mb-3">
+            Residential Services
+          </p>
 
-            <a href="#contact" class="inline-flex mt-7 bg-blueMain text-white px-6 py-4 uppercase tracking-[0.14em] text-xs font-extrabold hover:bg-blueHover transition">
-              Get A Fast Quote »
-            </a>
-          </div>
+          <h2 class="font-orbitron uppercase text-3xl sm:text-4xl font-black leading-tight">
+            Clean, Professional Plumbing Service.
+          </h2>
 
-          <div class="lg:col-span-2 grid sm:grid-cols-2 xl:grid-cols-3 gap-5">
-            <div class="group border border-black/10 p-6 hover:border-blueMain hover:shadow-lg transition bg-white" data-aos="fade-up" data-aos-delay="100">
+          <p class="mt-5 text-black/60 leading-relaxed">
+            Select a service to preview the type of work.
+          </p>
+
+    
+
+          <a href="#contact" class="inline-flex mt-7 bg-blueMain text-white px-6 py-4 uppercase tracking-[0.14em] text-xs font-extrabold hover:bg-blueHover transition">
+            Request Service »
+          </a>
+        </div>
+
+        <!-- GRID -->
+        <div class="lg:col-span-2 grid sm:grid-cols-2 xl:grid-cols-3 gap-5">
+
+          <!-- CARD -->
+          <button class="service-option active relative text-left group border border-black/10 p-6 hover:border-blueMain hover:shadow-lg transition overflow-hidden bg-cover bg-center"
+            style="background-image:url('assets/repair.png')"
+            data-title="Plumbing Repairs"
+            data-img="assets/service-repairs.jpg">
+            <div class="absolute inset-0 bg-white/85 group-hover:bg-white/75 transition"></div>
+            <div class="relative z-10">
               <div class="w-10 h-1 bg-blueMain mb-5"></div>
               <h3 class="font-orbitron text-lg uppercase font-black mb-3">Repairs</h3>
-              <p class="text-sm text-black/60">Leaks, clogs, pressure issues, emergency calls.</p>
+              <p class="text-sm text-black/60">Leaks, clogs, pressure issues.</p>
             </div>
+          </button>
 
-            <div class="group border border-black/10 p-6 hover:border-blueMain hover:shadow-lg transition bg-white" data-aos="fade-up" data-aos-delay="150">
-              <div class="w-10 h-1 bg-blueMain mb-5"></div>
+          <button class="service-option relative text-left group border border-black/10 p-6 hover:border-blueMain hover:shadow-lg transition overflow-hidden bg-cover bg-center"
+            style="background-image:url('assets/toilet.png')"
+            data-title="Toilet Rebuilds"
+            data-img="assets/service-toilet.jpg">
+            <div class="absolute inset-0 bg-white/85 group-hover:bg-white/75 transition"></div>
+            <div class="relative z-10">
+              <h3 class="font-orbitron text-lg uppercase font-black mb-3">Toilet Rebuilds</h3>
+              <p class="text-sm text-black/60">Flush issues, rebuild kits.</p>
+            </div>
+          </button>
+
+          <button class="service-option relative text-left group border border-black/10 p-6 hover:border-blueMain hover:shadow-lg transition overflow-hidden bg-cover bg-center"
+            style="background-image:url('assets/fauce.png')"
+            data-title="Faucet Repair"
+            data-img="assets/service-faucet.jpg">
+            <div class="absolute inset-0 bg-white/85 group-hover:bg-white/75 transition"></div>
+            <div class="relative z-10">
+              <h3 class="font-orbitron text-lg uppercase font-black mb-3">Faucet Repair</h3>
+              <p class="text-sm text-black/60">Leaks & cartridges.</p>
+            </div>
+          </button>
+
+          <button class="service-option relative text-left group border border-black/10 p-6 hover:border-blueMain hover:shadow-lg transition overflow-hidden bg-cover bg-center"
+            style="background-image:url('assets/g.png')">
+            <div class="absolute inset-0 bg-white/85 group-hover:bg-white/75 transition"></div>
+            <div class="relative z-10">
+              <h3 class="font-orbitron text-lg uppercase font-black mb-3">Garbage Disposal</h3>
+              <p class="text-sm text-black/60">Install & replacement.</p>
+            </div>
+          </button>
+
+          <button class="service-option relative text-left group border border-black/10 p-6 hover:border-blueMain hover:shadow-lg transition overflow-hidden bg-cover bg-center"
+            style="background-image:url('assets/bib.png')">
+            <div class="absolute inset-0 bg-white/85 group-hover:bg-white/75 transition"></div>
+            <div class="relative z-10">
+              <h3 class="font-orbitron text-lg uppercase font-black mb-3">Hose Bibs</h3>
+              <p class="text-sm text-black/60">Outdoor faucet repair.</p>
+            </div>
+          </button>
+
+          <button class="service-option relative text-left group border border-black/10 p-6 hover:border-blueMain hover:shadow-lg transition overflow-hidden bg-cover bg-center"
+            style="background-image:url('assets/waterheater.png')">
+            <div class="absolute inset-0 bg-white/85 group-hover:bg-white/75 transition"></div>
+            <div class="relative z-10">
               <h3 class="font-orbitron text-lg uppercase font-black mb-3">Water Heaters</h3>
-              <p class="text-sm text-black/60">Water heater repairs, installs, and replacements.</p>
+              <p class="text-sm text-black/60">Repair & install.</p>
             </div>
+          </button>
 
-            <div class="group border border-black/10 p-6 hover:border-blueMain hover:shadow-lg transition bg-white" data-aos="fade-up" data-aos-delay="200">
-              <div class="w-10 h-1 bg-blueMain mb-5"></div>
+          <button class="service-option relative text-left group border border-black/10 p-6 hover:border-blueMain hover:shadow-lg transition overflow-hidden bg-cover bg-center"
+            style="background-image:url('assets/drain.png')">
+            <div class="absolute inset-0 bg-white/85 group-hover:bg-white/75 transition"></div>
+            <div class="relative z-10">
+              <h3 class="font-orbitron text-lg uppercase font-black mb-3">Drain Cleaning</h3>
+              <p class="text-sm text-black/60">Clogs & backups.</p>
+            </div>
+          </button>
+
+          <button class="service-option relative text-left group border border-black/10 p-6 hover:border-blueMain hover:shadow-lg transition overflow-hidden bg-cover bg-center"
+            style="background-image:url('assets/gassy.png')">
+            <div class="absolute inset-0 bg-white/85 group-hover:bg-white/75 transition"></div>
+            <div class="relative z-10">
               <h3 class="font-orbitron text-lg uppercase font-black mb-3">Gas Leaks</h3>
-              <p class="text-sm text-black/60">Gas leak service, detection, and plumbing repair.</p>
+              <p class="text-sm text-black/60">Detection & repair.</p>
             </div>
+          </button>
 
-            <div class="group border border-black/10 p-6 hover:border-blueMain hover:shadow-lg transition bg-white" data-aos="fade-up" data-aos-delay="250">
-              <div class="w-10 h-1 bg-blueMain mb-5"></div>
-              <h3 class="font-orbitron text-lg uppercase font-black mb-3">Service Unstops</h3>
-              <p class="text-sm text-black/60">Clogged drains, backed-up lines, and service unstops.</p>
-            </div>
-
-            <div class="group border border-black/10 p-6 hover:border-blueMain hover:shadow-lg transition bg-white" data-aos="fade-up" data-aos-delay="300">
-              <div class="w-10 h-1 bg-blueMain mb-5"></div>
+          <button class="service-option relative text-left group border border-black/10 p-6 hover:border-blueMain hover:shadow-lg transition overflow-hidden bg-cover bg-center"
+            style="background-image:url('assets/cam.png')">
+            <div class="absolute inset-0 bg-white/85 group-hover:bg-white/75 transition"></div>
+            <div class="relative z-10">
               <h3 class="font-orbitron text-lg uppercase font-black mb-3">Camera Inspections</h3>
-              <p class="text-sm text-black/60">Sewer camera inspections and line diagnostics.</p>
+              <p class="text-sm text-black/60">Sewer diagnostics.</p>
             </div>
+          </button>
 
-            <div class="group border border-black/10 p-6 hover:border-blueMain hover:shadow-lg transition bg-white" data-aos="fade-up" data-aos-delay="350">
-              <div class="w-10 h-1 bg-blueMain mb-5"></div>
-              <h3 class="font-orbitron text-lg uppercase font-black mb-3">Commercial</h3>
-              <p class="text-sm text-black/60">Business plumbing, build-outs, and maintenance.</p>
-            </div>
-          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+  <!-- REVIEWS -->
+  <section id="reviews" class="bg-[#f5f7fb] py-24 text-center">
+    <div class="max-w-7xl mx-auto px-5">
+      <p class="text-blueMain uppercase tracking-[0.22em] text-xs font-extrabold mb-3" data-aos="fade-up">
+        Reviews / Testimonials
+      </p>
+
+      <h2 class="font-orbitron uppercase text-3xl sm:text-4xl font-black mb-12" data-aos="fade-up" data-aos-delay="100">
+        What Customers Are Saying
+      </h2>
+
+      <div class="grid md:grid-cols-3 gap-6 text-left">
+        <div class="bg-white border border-black/10 p-7 shadow-lg" data-aos="fade-up" data-aos-delay="150">
+          <div class="text-blueMain mb-4">★★★★★</div>
+          <p class="text-black/70 leading-relaxed">
+            “Great communication, clean work, and showed up when they said they would. Highly recommend.”
+          </p>
+          <p class="mt-5 font-bold text-black">— North Texas Customer</p>
+        </div>
+
+        <div class="bg-white border border-black/10 p-7 shadow-lg" data-aos="fade-up" data-aos-delay="250">
+          <div class="text-blueMain mb-4">★★★★★</div>
+          <p class="text-black/70 leading-relaxed">
+            “They fixed the issue fast and explained everything clearly. Honest and professional.”
+          </p>
+          <p class="mt-5 font-bold text-black">— Homeowner Review</p>
+        </div>
+
+        <div class="bg-white border border-black/10 p-7 shadow-lg" data-aos="fade-up" data-aos-delay="350">
+          <div class="text-blueMain mb-4">★★★★★</div>
+          <p class="text-black/70 leading-relaxed">
+            “Reliable plumbing service with fair pricing. I’ll definitely call them again.”
+          </p>
+          <p class="mt-5 font-bold text-black">— DFW Customer</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- NETLIFY FORM DARK -->
+  <!-- CONTACT FORM -->
   <section id="contact" class="bg-black py-20 text-white relative overflow-hidden">
     <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(11,67,217,0.25),transparent_40%)]"></div>
 
     <div class="relative max-w-5xl mx-auto px-5" data-aos="fade-up">
       <div class="text-center mb-12">
         <p class="text-blueMain uppercase tracking-[0.22em] text-xs font-extrabold mb-3">
-          Get A Fast Quote
+          Request Service
         </p>
 
         <h2 class="font-orbitron uppercase text-3xl sm:text-4xl font-black mb-4">
@@ -424,12 +509,16 @@
           <select name="service" required class="mt-2 w-full bg-black border border-white/15 text-white px-4 py-3 outline-none focus:border-blueMain">
             <option value="">Select a Service</option>
             <option>Plumbing Repair</option>
+            <option>Toilet Rebuild</option>
+            <option>Drip Faucet Repair</option>
+            <option>Garbage Disposal Replacement</option>
+            <option>Hose Bib Replacement</option>
             <option>Water Heater</option>
             <option>Gas Leak</option>
             <option>Drain Cleaning / Unstop</option>
             <option>Sewer Camera Inspection</option>
-            <option>Commercial Plumbing</option>
             <option>Emergency Service</option>
+            <option>Other Residential Plumbing Service</option>
           </select>
         </div>
 
@@ -490,7 +579,7 @@
   <!-- FOOTER -->
   <footer class="relative text-white overflow-hidden">
     <div class="absolute inset-0">
-      <img src="assets/footer.jpg" class="w-full h-full object-cover">
+      <img src="assets/image.png" class="w-full h-full object-cover" alt="">
       <div class="absolute inset-0 bg-gradient-to-b from-black/95 via-black/90 to-black/95"></div>
       <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(11,67,217,0.25),transparent_50%)]"></div>
     </div>
@@ -507,21 +596,28 @@
             <a href="index.html" class="hover:text-blueMain transition">Home</a>
             <a href="#about" class="hover:text-blueMain transition">About</a>
             <a href="#services" class="hover:text-blueMain transition">Services</a>
+            <a href="#reviews" class="hover:text-blueMain transition">Reviews</a>
             <a href="#contact" class="hover:text-blueMain transition">Contact</a>
           </div>
         </div>
 
         <div class="flex flex-col items-center order-1 lg:order-2" data-aos="fade-up" data-aos-delay="150">
-          <img src="assets/logod.png" alt="Level Up Plumbing Logo" class="w-40 sm:w-44 mb-6 p-2 shadow-lg">
+          <img src="assets/ntx.png" alt="North Texas Level Up Plumbing Logo" class="w-40 sm:w-44 mb-6 p-2 shadow-lg">
 
-          <h3 class="font-orbitron uppercase text-xl tracking-[0.28em] leading-[1.4] mb-4 text-center">
-            LEVEL UP<br>PLUMBING
+          <h3 class="font-orbitron uppercase text-xl tracking-[0.22em] leading-[1.4] mb-4 text-center">
+            North Texas<br>
+            <span class="text-blueMain">Level Up</span><br>
+            Plumbing
           </h3>
 
           <div class="w-16 h-[2px] bg-blueMain mb-6"></div>
 
           <p class="text-white/60 text-sm max-w-xs leading-relaxed text-center">
             Clean installs, reliable repairs, and plumbing solutions you can trust across the DFW area.
+          </p>
+
+          <p class="mt-5 text-white/50 text-xs uppercase tracking-[0.18em]">
+            🇺🇸 Proudly Serving North Texas
           </p>
         </div>
 
@@ -538,9 +634,8 @@
           </a>
 
           <div class="flex gap-5 text-white/80 text-lg">
-            <a href="#" class="hover:text-blueMain transition"><i class="fa-brands fa-instagram"></i></a>
-            <a href="#" class="hover:text-blueMain transition"><i class="fa-brands fa-tiktok"></i></a>
-            <a href="#" class="hover:text-blueMain transition"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="hover:text-blueMain transition" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="hover:text-blueMain transition" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
           </div>
         </div>
       </div>
@@ -620,6 +715,21 @@
     }, { threshold: 0.5 });
 
     counters.forEach(counter => observer.observe(counter));
+
+    const serviceButtons = document.querySelectorAll(".service-option");
+    const serviceImage = document.getElementById("serviceImage");
+    const serviceImageTitle = document.getElementById("serviceImageTitle");
+
+    serviceButtons.forEach(button => {
+      button.addEventListener("click", () => {
+        serviceButtons.forEach(btn => btn.classList.remove("active"));
+        button.classList.add("active");
+
+        serviceImage.src = button.dataset.img;
+        serviceImage.alt = button.dataset.title;
+        serviceImageTitle.textContent = button.dataset.title;
+      });
+    });
   </script>
 
 </body>

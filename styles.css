@@ -1,0 +1,34 @@
+.cta-btn {
+  position: relative;
+  display: inline-block;
+  color: white;
+  border: 2px solid white;
+  padding: 14px 26px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  transition: all 0.35s ease;
+  overflow: hidden;
+}
+
+/* diamond hover effect */
+.cta-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.164);
+  transform: scale(0) rotate(45deg);
+  transition: all 0.35s ease;
+  z-index: -1;
+}
+
+.cta-btn:hover::before {
+  transform: scale(1.2) rotate(45deg);
+}
+
+/* text color flip */
+.cta-btn:hover {
+  color: rgb(0, 12, 148);
+  border-color: white;
+}
