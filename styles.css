@@ -13,15 +13,7 @@
 }
 
 /* diamond hover effect */
-.cta-btn::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(255, 255, 255, 0.164);
-  transform: scale(0) rotate(45deg);
-  transition: all 0.35s ease;
-  z-index: -1;
-}
+
 
 .cta-btn:hover::before {
   transform: scale(1.2) rotate(45deg);
