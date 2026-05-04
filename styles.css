@@ -23,4 +23,68 @@
 .cta-btn:hover {
   color: rgb(0, 12, 148);
   border-color: white;
+}/* MOBILE HERO FIX */
+@media (max-width: 768px) {
+
+  /* center everything */
+  .hero-content,
+  section .relative.z-10 {
+    text-align: center;
+    align-items: center;
+  }
+
+  /* center text block */
+  section h1,
+  section p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* center buttons */
+  section .flex.flex-col {
+    align-items: center;
+  }
+
+  /* FORCE WHITE BUTTON STYLE ON MOBILE */
+  .cta-btn {
+    background: white;
+    color: black;
+    border: 2px solid white;
+    width: 100%;
+    max-width: 260px;
+    text-align: center;
+  }
+
+  .cta-btn:hover {
+    background: black;
+    color: white;
+  }
+
+}/* MOBILE NAV LOGO FIX */
+@media (max-width: 768px) {
+
+  /* center entire nav row */
+  header .max-w-7xl {
+    justify-content: center;
+    position: relative;
+  }
+
+  /* center logo */
+  header a.flex.items-center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  /* make logo bigger */
+  header a.flex.items-center img {
+    height: 110px; /* adjust if you want bigger */
+  }
+
+  /* keep hamburger on right */
+  #menuBtn {
+    position: absolute;
+    right: 20px;
+  }
+
 }
