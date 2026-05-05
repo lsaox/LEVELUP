@@ -87,6 +87,33 @@
       border-color: #0b43d9;
       box-shadow: 0 18px 40px rgba(11,67,217,.15);
     }
+
+    .dropdown-content {
+      animation: dropdownFade .25s ease forwards;
+    }
+
+    @keyframes dropdownFade {
+      from { opacity: 0; transform: translateY(-6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #0b43d9;
+      color: white;
+      padding: 1rem 1.5rem;
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      font-size: .75rem;
+      font-weight: 800;
+      transition: .25s ease;
+    }
+
+    .cta-btn:hover {
+      background: #0a38b8;
+    }
   </style>
 </head>
 
@@ -107,9 +134,6 @@
       
       <a href="index.html" class="flex items-center gap-3">
         <img src="assets/ntx.png" alt="North Texas Level Up Plumbing" class="h-20 lg:h-24 w-auto object-contain">
-        <div class="hidden sm:block leading-tight">
-          
-        </div>
       </a>
 
       <nav class="hidden lg:flex items-center gap-9 text-[12px] uppercase tracking-[0.16em] font-bold text-black/70">
@@ -131,12 +155,9 @@
 
     <!-- MOBILE MENU -->
     <div id="mobileMenu" class="menu-closed fixed inset-0 bg-white/95 z-[999] flex flex-col items-center justify-center text-center px-6">
-
       <button id="closeMenu" class="absolute top-6 right-6 text-black text-4xl">×</button>
 
       <img src="assets/ntx.png" alt="North Texas Level Up Plumbing" class="w-36 mb-5">
-
-      
 
       <nav class="flex flex-col gap-7 font-orbitron text-black uppercase tracking-[0.18em] font-bold text-sm">
         <a href="#services" class="mobile-link hover:text-blueMain transition">Services</a>
@@ -152,66 +173,53 @@
     </div>
   </header>
 
-  <!-- HERO --><div class="hero-content relative z-10 max-w-7xl mx-auto">
+  <!-- HERO -->
   <section class="relative min-h-[620px] lg:min-h-[650px] overflow-hidden">
-  
-  <!-- BACKGROUND -->
-  <div class="absolute inset-0 z-0">
-    <img src="assets/hero.png" class="w-full h-full object-cover" alt="North Texas plumbing service" />
-    <div class="absolute inset-0 bg-black/70"></div>
-    <div class="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-black/20"></div>
-  </div>
-
-  <!-- CONTENT -->
-  <div class="relative z-10 max-w-7xl mx-auto px-[clamp(20px,6vw,80px)] pt-[clamp(100px,14vh,160px)] pb-[clamp(60px,10vh,120px)]">
-    
-    <div class="flex items-center gap-4 mb-8" data-aos="fade-up">
-      <p class="text-white/90 text-xs uppercase tracking-[0.22em] font-bold"></p>
-      <div class="w-24 h-[2px]"></div>
+    <div class="absolute inset-0 z-0">
+      <img src="assets/hero.png" class="w-full h-full object-cover" alt="North Texas plumbing service" />
+      <div class="absolute inset-0 bg-black/70"></div>
+      <div class="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-black/20"></div>
     </div>
 
-    <h1 class="font-orbitron uppercase leading-[0.95] tracking-tight shine-text">
-      <span class="block text-white text-[1.15rem] sm:text-[1.6rem] lg:text-[2rem] tracking-[0.35em] mb-3">
-        North Texas
-      </span>
+    <div class="relative z-10 max-w-7xl mx-auto px-[clamp(20px,6vw,80px)] pt-[clamp(100px,14vh,160px)] pb-[clamp(60px,10vh,120px)]">
+      <div class="flex items-center gap-4 mb-8" data-aos="fade-up">
+        <p class="text-white/90 text-xs uppercase tracking-[0.22em] font-bold"></p>
+        <div class="w-24 h-[2px]"></div>
+      </div>
 
-      <span class="block text-transparent [-webkit-text-stroke:1.5px_white] text-[3rem] sm:text-[4.7rem] lg:text-[6.4rem]">
-        LEVEL
-      </span>
+      <h1 class="font-orbitron uppercase leading-[0.95] tracking-tight shine-text">
+        <span class="block text-white text-[1.15rem] sm:text-[1.6rem] lg:text-[2rem] tracking-[0.35em] mb-3">
+          North Texas
+        </span>
 
-      <span class="block text-white text-[2.8rem] sm:text-[4.5rem] lg:text-[6.7rem]">
-        UP
-      </span>
+        <span class="block text-transparent [-webkit-text-stroke:1.5px_white] text-[3rem] sm:text-[4.7rem] lg:text-[6.4rem]">
+          LEVEL
+        </span>
 
-      <span class="block text-transparent [-webkit-text-stroke:1.5px_white] text-[3rem] sm:text-[4.7rem] lg:text-[6.4rem]">
-        PLUMBING
-      </span>
-    </h1>
+        <span class="block text-white text-[2.8rem] sm:text-[4.5rem] lg:text-[6.7rem]">
+          UP
+        </span>
 
-    <p class="max-w-lg mt-7 text-white/80 text-base sm:text-lg leading-relaxed" data-aos="fade-up" data-aos-delay="200">
-      Raising the standard. Fixing the problem. Reliable residential plumbing service for repairs, installs, emergency calls, and everyday plumbing needs across North Texas.
-    </p>
+        <span class="block text-transparent [-webkit-text-stroke:1.5px_white] text-[3rem] sm:text-[4.7rem] lg:text-[6.4rem]">
+          PLUMBING
+        </span>
+      </h1>
 
-    <div class="flex flex-col sm:flex-row gap-5 mt-10" data-aos="fade-up" data-aos-delay="300">
-      
-      <a href="#services" class="cta-btn">
-        See Our Services »
-      </a>
+      <p class="max-w-lg mt-7 text-white/80 text-base sm:text-lg leading-relaxed" data-aos="fade-up" data-aos-delay="200">
+        Raising the standard. Fixing the problem. Reliable residential plumbing service for repairs, installs, emergency calls, and everyday plumbing needs across North Texas.
+      </p>
 
-      <a href="#contact" class="cta-btn">
-        Request Service »
-      </a>
-
+      <div class="flex flex-col sm:flex-row gap-5 mt-10" data-aos="fade-up" data-aos-delay="300">
+        <a href="#services" class="cta-btn">See Our Services »</a>
+        <a href="#contact" class="cta-btn">Request Service »</a>
+      </div>
     </div>
 
-  </div>
+    <div class="absolute right-[12%] bottom-[-24px] z-20">
+      <div class="text-blueMain text-6xl leading-none font-black rotate-90">»»</div>
+    </div>
+  </section>
 
-  <!-- SCROLL ICON -->
-  <div class="absolute right-[12%] bottom-[-24px] z-20">
-    <div class="text-blueMain text-6xl leading-none font-black rotate-90">»»</div>
-  </div>
-
-</section>
   <!-- ABOUT -->
   <section id="about" class="relative py-24 text-center overflow-hidden bg-[#f5f7fb]">
     <div class="absolute right-0 top-0 h-full w-full lg:w-[40%] opacity-20 lg:opacity-35">
@@ -276,142 +284,260 @@
   </section>
 
   <!-- SERVICES -->
-<section id="services" class="relative bg-white py-24 overflow-hidden">
-  <div class="absolute inset-0 grid grid-cols-4 opacity-[0.05]">
-    <div class="border-r border-black"></div>
-    <div class="border-r border-black"></div>
-    <div class="border-r border-black"></div>
-    <div></div>
-  </div>
+  <section id="services" class="relative bg-white py-24 overflow-hidden">
+    <div class="absolute inset-0 grid grid-cols-4 opacity-[0.05]">
+      <div class="border-r border-black"></div>
+      <div class="border-r border-black"></div>
+      <div class="border-r border-black"></div>
+      <div></div>
+    </div>
 
-  <div class="relative max-w-7xl mx-auto px-5">
-    <div class="relative border border-black/15 shadow-2xl bg-white p-6 sm:p-10 lg:p-12 overflow-hidden" data-aos="fade-up">
+    <div class="relative max-w-7xl mx-auto px-5">
+      <div class="relative border border-black/15 shadow-2xl bg-white p-6 sm:p-10 lg:p-12 overflow-hidden" data-aos="fade-up">
 
-      <div class="absolute top-0 left-0 w-28 h-[4px] bg-blueMain"></div>
-      <div class="absolute top-0 left-0 w-[4px] h-28 bg-blueMain"></div>
-      <div class="absolute bottom-0 right-0 w-28 h-[4px] bg-blueMain"></div>
-      <div class="absolute bottom-0 right-0 w-[4px] h-28 bg-blueMain"></div>
+        <div class="absolute top-0 left-0 w-28 h-[4px] bg-blueMain"></div>
+        <div class="absolute top-0 left-0 w-[4px] h-28 bg-blueMain"></div>
+        <div class="absolute bottom-0 right-0 w-28 h-[4px] bg-blueMain"></div>
+        <div class="absolute bottom-0 right-0 w-[4px] h-28 bg-blueMain"></div>
 
-      <div class="grid lg:grid-cols-3 gap-10 items-start">
+        <div class="grid lg:grid-cols-3 gap-10 items-start">
 
-        <!-- LEFT -->
-        <div class="text-center lg:text-left">
-          <p class="text-blueMain uppercase tracking-[0.22em] text-xs font-extrabold mb-3">
-            Residential Services
-          </p>
+          <!-- LEFT -->
+          <div class="text-center lg:text-left">
+            <p class="text-blueMain uppercase tracking-[0.22em] text-xs font-extrabold mb-3">
+              Residential Services
+            </p>
 
-          <h2 class="font-orbitron uppercase text-3xl sm:text-4xl font-black leading-tight">
-            Clean, Professional Plumbing Service.
-          </h2>
+            <h2 class="font-orbitron uppercase text-3xl sm:text-4xl font-black leading-tight">
+              Clean, Professional Plumbing Service.
+            </h2>
 
-          <p class="mt-5 text-black/60 leading-relaxed">
-            Select a service to preview the type of work.
-          </p>
+            <p class="mt-5 text-black/60 leading-relaxed">
+              Press the arrow on any service to see a quick description of what’s included.
+            </p>
 
-    
+            <a href="#contact" class="inline-flex mt-7 bg-blueMain text-white px-6 py-4 uppercase tracking-[0.14em] text-xs font-extrabold hover:bg-blueHover transition">
+              Request Service »
+            </a>
+          </div>
 
-          <a href="#contact" class="inline-flex mt-7 bg-blueMain text-white px-6 py-4 uppercase tracking-[0.14em] text-xs font-extrabold hover:bg-blueHover transition">
-            Request Service »
-          </a>
-        </div>
+          <!-- GRID -->
+          <div class="lg:col-span-2 grid sm:grid-cols-2 xl:grid-cols-3 gap-5">
 
-        <!-- GRID -->
-        <div class="lg:col-span-2 grid sm:grid-cols-2 xl:grid-cols-3 gap-5">
+            <!-- REPAIRS -->
+            <div class="service-option service-dropdown active relative text-left group border border-black/10 p-6 hover:border-blueMain hover:shadow-lg transition overflow-hidden bg-cover bg-center"
+              style="background-image:url('assets/repair.png')">
+              <div class="absolute inset-0 bg-white/85 group-hover:bg-white/75 transition"></div>
 
-          <!-- CARD -->
-          <button class="service-option active relative text-left group border border-black/10 p-6 hover:border-blueMain hover:shadow-lg transition overflow-hidden bg-cover bg-center"
-            style="background-image:url('assets/repair.png')"
-            data-title="Plumbing Repairs"
-            data-img="assets/service-repairs.jpg">
-            <div class="absolute inset-0 bg-white/85 group-hover:bg-white/75 transition"></div>
-            <div class="relative z-10">
-              <div class="w-10 h-1 bg-blueMain mb-5"></div>
-              <h3 class="font-orbitron text-lg uppercase font-black mb-3">Repairs</h3>
-              <p class="text-sm text-black/60">Leaks, clogs, pressure issues.</p>
+              <div class="relative z-10">
+                <div class="flex items-start justify-between gap-4">
+                  <div>
+                    <div class="w-10 h-1 bg-blueMain mb-5"></div>
+                    <h3 class="font-orbitron text-lg uppercase font-black mb-3">Repairs</h3>
+                    <p class="text-sm text-black/60">Leaks, clogs, pressure issues.</p>
+                  </div>
+
+                  <button type="button" class="dropdown-toggle shrink-0 text-blueMain text-3xl leading-none font-black">+</button>
+                </div>
+
+                <div class="dropdown-content hidden mt-5 pt-5 border-t border-black/10">
+                  <p class="text-sm text-black/70 leading-relaxed">
+                    We handle common plumbing repairs including leaking pipes, pressure problems, clogged drains, and faulty fixtures. Fast diagnostics and dependable repair work done right.
+                  </p>
+                </div>
+              </div>
             </div>
-          </button>
 
-          <button class="service-option relative text-left group border border-black/10 p-6 hover:border-blueMain hover:shadow-lg transition overflow-hidden bg-cover bg-center"
-            style="background-image:url('assets/toilet.png')"
-            data-title="Toilet Rebuilds"
-            data-img="assets/service-toilet.jpg">
-            <div class="absolute inset-0 bg-white/85 group-hover:bg-white/75 transition"></div>
-            <div class="relative z-10">
-              <h3 class="font-orbitron text-lg uppercase font-black mb-3">Toilet Rebuilds</h3>
-              <p class="text-sm text-black/60">Flush issues, rebuild kits.</p>
+            <!-- TOILET -->
+            <div class="service-option service-dropdown relative text-left group border border-black/10 p-6 hover:border-blueMain hover:shadow-lg transition overflow-hidden bg-cover bg-center"
+              style="background-image:url('assets/toilet.png')">
+              <div class="absolute inset-0 bg-white/85 group-hover:bg-white/75 transition"></div>
+
+              <div class="relative z-10">
+                <div class="flex items-start justify-between gap-4">
+                  <div>
+                    <h3 class="font-orbitron text-lg uppercase font-black mb-3">Toilet Rebuilds</h3>
+                    <p class="text-sm text-black/60">Flush issues, rebuild kits.</p>
+                  </div>
+
+                  <button type="button" class="dropdown-toggle shrink-0 text-blueMain text-3xl leading-none font-black">+</button>
+                </div>
+
+                <div class="dropdown-content hidden mt-5 pt-5 border-t border-black/10">
+                  <p class="text-sm text-black/70 leading-relaxed">
+                    From weak flushing to running toilets, we rebuild and replace worn internal components. This helps restore performance and prevent wasted water or leaks.
+                  </p>
+                </div>
+              </div>
             </div>
-          </button>
 
-          <button class="service-option relative text-left group border border-black/10 p-6 hover:border-blueMain hover:shadow-lg transition overflow-hidden bg-cover bg-center"
-            style="background-image:url('assets/fauce.png')"
-            data-title="Faucet Repair"
-            data-img="assets/service-faucet.jpg">
-            <div class="absolute inset-0 bg-white/85 group-hover:bg-white/75 transition"></div>
-            <div class="relative z-10">
-              <h3 class="font-orbitron text-lg uppercase font-black mb-3">Faucet Repair</h3>
-              <p class="text-sm text-black/60">Leaks & cartridges.</p>
+            <!-- FAUCET -->
+            <div class="service-option service-dropdown relative text-left group border border-black/10 p-6 hover:border-blueMain hover:shadow-lg transition overflow-hidden bg-cover bg-center"
+              style="background-image:url('assets/fauce.png')">
+              <div class="absolute inset-0 bg-white/85 group-hover:bg-white/75 transition"></div>
+
+              <div class="relative z-10">
+                <div class="flex items-start justify-between gap-4">
+                  <div>
+                    <h3 class="font-orbitron text-lg uppercase font-black mb-3">Faucet Repair</h3>
+                    <p class="text-sm text-black/60">Leaks & cartridges.</p>
+                  </div>
+
+                  <button type="button" class="dropdown-toggle shrink-0 text-blueMain text-3xl leading-none font-black">+</button>
+                </div>
+
+                <div class="dropdown-content hidden mt-5 pt-5 border-t border-black/10">
+                  <p class="text-sm text-black/70 leading-relaxed">
+                    We repair dripping faucets, damaged handles, worn cartridges, and fixture leaks. The goal is smooth operation, clean water flow, and no wasted water.
+                  </p>
+                </div>
+              </div>
             </div>
-          </button>
 
-          <button class="service-option relative text-left group border border-black/10 p-6 hover:border-blueMain hover:shadow-lg transition overflow-hidden bg-cover bg-center"
-            style="background-image:url('assets/g.png')">
-            <div class="absolute inset-0 bg-white/85 group-hover:bg-white/75 transition"></div>
-            <div class="relative z-10">
-              <h3 class="font-orbitron text-lg uppercase font-black mb-3">Garbage Disposal</h3>
-              <p class="text-sm text-black/60">Install & replacement.</p>
+            <!-- GARBAGE DISPOSAL -->
+            <div class="service-option service-dropdown relative text-left group border border-black/10 p-6 hover:border-blueMain hover:shadow-lg transition overflow-hidden bg-cover bg-center"
+              style="background-image:url('assets/g.png')">
+              <div class="absolute inset-0 bg-white/85 group-hover:bg-white/75 transition"></div>
+
+              <div class="relative z-10">
+                <div class="flex items-start justify-between gap-4">
+                  <div>
+                    <h3 class="font-orbitron text-lg uppercase font-black mb-3">Garbage Disposal</h3>
+                    <p class="text-sm text-black/60">Install & replacement.</p>
+                  </div>
+
+                  <button type="button" class="dropdown-toggle shrink-0 text-blueMain text-3xl leading-none font-black">+</button>
+                </div>
+
+                <div class="dropdown-content hidden mt-5 pt-5 border-t border-black/10">
+                  <p class="text-sm text-black/70 leading-relaxed">
+                    We install and replace garbage disposals safely and efficiently. We also check drainage, leaks, and proper operation before the job is finished.
+                  </p>
+                </div>
+              </div>
             </div>
-          </button>
 
-          <button class="service-option relative text-left group border border-black/10 p-6 hover:border-blueMain hover:shadow-lg transition overflow-hidden bg-cover bg-center"
-            style="background-image:url('assets/bib.png')">
-            <div class="absolute inset-0 bg-white/85 group-hover:bg-white/75 transition"></div>
-            <div class="relative z-10">
-              <h3 class="font-orbitron text-lg uppercase font-black mb-3">Hose Bibs</h3>
-              <p class="text-sm text-black/60">Outdoor faucet repair.</p>
+            <!-- HOSE BIB -->
+            <div class="service-option service-dropdown relative text-left group border border-black/10 p-6 hover:border-blueMain hover:shadow-lg transition overflow-hidden bg-cover bg-center"
+              style="background-image:url('assets/bib.png')">
+              <div class="absolute inset-0 bg-white/85 group-hover:bg-white/75 transition"></div>
+
+              <div class="relative z-10">
+                <div class="flex items-start justify-between gap-4">
+                  <div>
+                    <h3 class="font-orbitron text-lg uppercase font-black mb-3">Hose Bibs</h3>
+                    <p class="text-sm text-black/60">Outdoor faucet repair.</p>
+                  </div>
+
+                  <button type="button" class="dropdown-toggle shrink-0 text-blueMain text-3xl leading-none font-black">+</button>
+                </div>
+
+                <div class="dropdown-content hidden mt-5 pt-5 border-t border-black/10">
+                  <p class="text-sm text-black/70 leading-relaxed">
+                    We repair and replace outdoor hose bibs for leaks, damage, and poor water flow. A proper repair helps protect your exterior plumbing and foundation.
+                  </p>
+                </div>
+              </div>
             </div>
-          </button>
 
-          <button class="service-option relative text-left group border border-black/10 p-6 hover:border-blueMain hover:shadow-lg transition overflow-hidden bg-cover bg-center"
-            style="background-image:url('assets/waterheater.png')">
-            <div class="absolute inset-0 bg-white/85 group-hover:bg-white/75 transition"></div>
-            <div class="relative z-10">
-              <h3 class="font-orbitron text-lg uppercase font-black mb-3">Water Heaters</h3>
-              <p class="text-sm text-black/60">Repair & install.</p>
+            <!-- WATER HEATER -->
+            <div class="service-option service-dropdown relative text-left group border border-black/10 p-6 hover:border-blueMain hover:shadow-lg transition overflow-hidden bg-cover bg-center"
+              style="background-image:url('assets/waterheater.png')">
+              <div class="absolute inset-0 bg-white/85 group-hover:bg-white/75 transition"></div>
+
+              <div class="relative z-10">
+                <div class="flex items-start justify-between gap-4">
+                  <div>
+                    <h3 class="font-orbitron text-lg uppercase font-black mb-3">Water Heaters</h3>
+                    <p class="text-sm text-black/60">Repair & install.</p>
+                  </div>
+
+                  <button type="button" class="dropdown-toggle shrink-0 text-blueMain text-3xl leading-none font-black">+</button>
+                </div>
+
+                <div class="dropdown-content hidden mt-5 pt-5 border-t border-black/10">
+                  <p class="text-sm text-black/70 leading-relaxed">
+                    From no hot water to replacement installs, we diagnose and service water heater issues. We help keep your home comfortable with reliable hot water.
+                  </p>
+                </div>
+              </div>
             </div>
-          </button>
 
-          <button class="service-option relative text-left group border border-black/10 p-6 hover:border-blueMain hover:shadow-lg transition overflow-hidden bg-cover bg-center"
-            style="background-image:url('assets/drain.png')">
-            <div class="absolute inset-0 bg-white/85 group-hover:bg-white/75 transition"></div>
-            <div class="relative z-10">
-              <h3 class="font-orbitron text-lg uppercase font-black mb-3">Drain Cleaning</h3>
-              <p class="text-sm text-black/60">Clogs & backups.</p>
+            <!-- DRAIN CLEANING -->
+            <div class="service-option service-dropdown relative text-left group border border-black/10 p-6 hover:border-blueMain hover:shadow-lg transition overflow-hidden bg-cover bg-center"
+              style="background-image:url('assets/drain.png')">
+              <div class="absolute inset-0 bg-white/85 group-hover:bg-white/75 transition"></div>
+
+              <div class="relative z-10">
+                <div class="flex items-start justify-between gap-4">
+                  <div>
+                    <h3 class="font-orbitron text-lg uppercase font-black mb-3">Drain Cleaning</h3>
+                    <p class="text-sm text-black/60">Clogs & backups.</p>
+                  </div>
+
+                  <button type="button" class="dropdown-toggle shrink-0 text-blueMain text-3xl leading-none font-black">+</button>
+                </div>
+
+                <div class="dropdown-content hidden mt-5 pt-5 border-t border-black/10">
+                  <p class="text-sm text-black/70 leading-relaxed">
+                    We clear clogged drains and stubborn backups using professional equipment. This restores proper flow and helps prevent repeat drainage problems.
+                  </p>
+                </div>
+              </div>
             </div>
-          </button>
 
-          <button class="service-option relative text-left group border border-black/10 p-6 hover:border-blueMain hover:shadow-lg transition overflow-hidden bg-cover bg-center"
-            style="background-image:url('assets/gassy.png')">
-            <div class="absolute inset-0 bg-white/85 group-hover:bg-white/75 transition"></div>
-            <div class="relative z-10">
-              <h3 class="font-orbitron text-lg uppercase font-black mb-3">Gas Leaks</h3>
-              <p class="text-sm text-black/60">Detection & repair.</p>
+            <!-- GAS LEAK -->
+            <div class="service-option service-dropdown relative text-left group border border-black/10 p-6 hover:border-blueMain hover:shadow-lg transition overflow-hidden bg-cover bg-center"
+              style="background-image:url('assets/gassy.png')">
+              <div class="absolute inset-0 bg-white/85 group-hover:bg-white/75 transition"></div>
+
+              <div class="relative z-10">
+                <div class="flex items-start justify-between gap-4">
+                  <div>
+                    <h3 class="font-orbitron text-lg uppercase font-black mb-3">Gas Leaks</h3>
+                    <p class="text-sm text-black/60">Detection & repair.</p>
+                  </div>
+
+                  <button type="button" class="dropdown-toggle shrink-0 text-blueMain text-3xl leading-none font-black">+</button>
+                </div>
+
+                <div class="dropdown-content hidden mt-5 pt-5 border-t border-black/10">
+                  <p class="text-sm text-black/70 leading-relaxed">
+                    We locate and repair residential gas leaks with safety as the priority. Lines, fittings, and connections are checked so the issue is handled correctly.
+                  </p>
+                </div>
+              </div>
             </div>
-          </button>
 
-          <button class="service-option relative text-left group border border-black/10 p-6 hover:border-blueMain hover:shadow-lg transition overflow-hidden bg-cover bg-center"
-            style="background-image:url('assets/cam.png')">
-            <div class="absolute inset-0 bg-white/85 group-hover:bg-white/75 transition"></div>
-            <div class="relative z-10">
-              <h3 class="font-orbitron text-lg uppercase font-black mb-3">Camera Inspections</h3>
-              <p class="text-sm text-black/60">Sewer diagnostics.</p>
+            <!-- CAMERA -->
+            <div class="service-option service-dropdown relative text-left group border border-black/10 p-6 hover:border-blueMain hover:shadow-lg transition overflow-hidden bg-cover bg-center"
+              style="background-image:url('assets/cam.png')">
+              <div class="absolute inset-0 bg-white/85 group-hover:bg-white/75 transition"></div>
+
+              <div class="relative z-10">
+                <div class="flex items-start justify-between gap-4">
+                  <div>
+                    <h3 class="font-orbitron text-lg uppercase font-black mb-3">Camera Inspections</h3>
+                    <p class="text-sm text-black/60">Sewer diagnostics.</p>
+                  </div>
+
+                  <button type="button" class="dropdown-toggle shrink-0 text-blueMain text-3xl leading-none font-black">+</button>
+                </div>
+
+                <div class="dropdown-content hidden mt-5 pt-5 border-t border-black/10">
+                  <p class="text-sm text-black/70 leading-relaxed">
+                    Sewer camera inspections help find hidden blockages, damaged lines, and underground plumbing problems. It gives a clearer look before major work starts.
+                  </p>
+                </div>
+              </div>
             </div>
-          </button>
 
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+
   <!-- REVIEWS -->
   <section id="reviews" class="bg-[#f5f7fb] py-24 text-center">
     <div class="max-w-7xl mx-auto px-5">
@@ -662,25 +788,27 @@
     const mobileMenu = document.getElementById("mobileMenu");
     const mobileLinks = document.querySelectorAll(".mobile-link");
 
-    menuBtn.addEventListener("click", () => {
-      mobileMenu.classList.remove("menu-closed");
-      mobileMenu.classList.add("menu-open");
-      document.body.style.overflow = "hidden";
-    });
+    if (menuBtn && closeMenu && mobileMenu) {
+      menuBtn.addEventListener("click", () => {
+        mobileMenu.classList.remove("menu-closed");
+        mobileMenu.classList.add("menu-open");
+        document.body.style.overflow = "hidden";
+      });
 
-    closeMenu.addEventListener("click", () => {
-      mobileMenu.classList.remove("menu-open");
-      mobileMenu.classList.add("menu-closed");
-      document.body.style.overflow = "";
-    });
-
-    mobileLinks.forEach(link => {
-      link.addEventListener("click", () => {
+      closeMenu.addEventListener("click", () => {
         mobileMenu.classList.remove("menu-open");
         mobileMenu.classList.add("menu-closed");
         document.body.style.overflow = "";
       });
-    });
+
+      mobileLinks.forEach(link => {
+        link.addEventListener("click", () => {
+          mobileMenu.classList.remove("menu-open");
+          mobileMenu.classList.add("menu-closed");
+          document.body.style.overflow = "";
+        });
+      });
+    }
 
     const counters = document.querySelectorAll(".count-up");
 
@@ -713,18 +841,26 @@
 
     counters.forEach(counter => observer.observe(counter));
 
-    const serviceButtons = document.querySelectorAll(".service-option");
-    const serviceImage = document.getElementById("serviceImage");
-    const serviceImageTitle = document.getElementById("serviceImageTitle");
+    // SERVICE DROPDOWNS
+    const dropdowns = document.querySelectorAll(".service-dropdown");
 
-    serviceButtons.forEach(button => {
-      button.addEventListener("click", () => {
-        serviceButtons.forEach(btn => btn.classList.remove("active"));
-        button.classList.add("active");
+    dropdowns.forEach(drop => {
+      const toggle = drop.querySelector(".dropdown-toggle");
+      const content = drop.querySelector(".dropdown-content");
 
-        serviceImage.src = button.dataset.img;
-        serviceImage.alt = button.dataset.title;
-        serviceImageTitle.textContent = button.dataset.title;
+      if (!toggle || !content) return;
+
+      toggle.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+
+        content.classList.toggle("hidden");
+        toggle.textContent = content.classList.contains("hidden") ? "+" : "−";
+      });
+
+      drop.addEventListener("click", () => {
+        dropdowns.forEach(item => item.classList.remove("active"));
+        drop.classList.add("active");
       });
     });
   </script>
